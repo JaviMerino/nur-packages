@@ -5,4 +5,5 @@ let
 in
 {
   ack-results-parser = callPackage ./ack-results-parser { };
+  python-hwinfo = callPackage ./python-hwinfo { };
 })
