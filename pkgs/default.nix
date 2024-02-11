@@ -5,6 +5,7 @@ let
 in
 {
   ack-results-parser = callPackage ./ack-results-parser { };
+  koji = callPackage ./koji { };
   pybeam = callPackage ./pybeam { };
   python-hwinfo = callPackage ./python-hwinfo { };
   python-ollama = callPackage ./python-ollama { };
