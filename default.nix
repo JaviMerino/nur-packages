@@ -6,5 +6,4 @@
   modules = import ./modules; # NixOS modules
   #overlays = import ./overlays; # nixpkgs overlays
 
-  ack-results-parser = pkgs.callPackage ./pkgs/ack-results-parser { };
-}
+} // (import ./pkgs { inherit pkgs; })
