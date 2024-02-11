@@ -5,7 +5,7 @@ let
 in
 {
   ack-results-parser = callPackage ./ack-results-parser { };
-  pybeam = callPackage ./pybeam { fetchPypi = pkgs.python3Packages.fetchPypi; };
+  pybeam = callPackage ./pybeam { };
   python-hwinfo = callPackage ./python-hwinfo { };
   rpmlint = callPackage ./rpmlint { };
 })
