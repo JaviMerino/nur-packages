@@ -1,4 +1,7 @@
-{ pkgs, python-hwinfo }:
+{ lib
+, pkgs
+, python-hwinfo
+}:
 
 pkgs.python3Packages.buildPythonApplication {
   pname = "ack-results-parser";
@@ -18,4 +21,12 @@ pkgs.python3Packages.buildPythonApplication {
     pymongo
     python-hwinfo
   ];
+
+  meta = with lib; {
+    description = "Tool for parsing the output of an ACK run";
+    homepage = "https://github.com/xenserver/ack-results-parser/";
+    maintainers = with maintainers; [ javimerino ];
+    license = [ licenses.unlicense ];
+    platforms = platforms.all;
+  };
 }
