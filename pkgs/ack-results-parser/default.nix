@@ -1,7 +1,7 @@
 { pkgs, python-hwinfo }:
 let
 in
-pkgs.python3Packages.buildPythonPackage {
+pkgs.python3Packages.buildPythonApplication {
   pname = "ack-results-parser";
   # Upstream does not do versions
   version = "0.1.0-a09a9024e19e";
