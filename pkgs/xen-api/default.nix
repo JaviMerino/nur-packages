@@ -47,6 +47,7 @@ stdenv.mkDerivation {
   #checkInputs = [];
 
   meta = with lib; {
+    broken = true;
     homepage = "https://xenproject.org/developers/teams/xen-api/";
     description = "A toolstack for use with the Xen hypervisor";
     longDescription = ''
