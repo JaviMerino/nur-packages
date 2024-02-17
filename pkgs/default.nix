@@ -9,5 +9,6 @@ in
   python-hwinfo = callPackage ./python-hwinfo { };
   python-ollama = callPackage ./python-ollama { };
   python-qpid-proton = callPackage ./python-qpid-proton { };
+  python-requests-gssapi = callPackage ./python-requests-gssapi { };
   rpmlint = callPackage ./rpmlint { };
 })
