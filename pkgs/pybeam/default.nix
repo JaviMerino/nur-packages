@@ -11,6 +11,10 @@ python3Packages.buildPythonPackage rec {
     sha256 = "sha256-zHqcRLK1f73NeR2XXas2nfPjMzAR5qxosM506g/cmL8=";
   };
 
+  nativeBuildInputs = with python3Packages; [
+    setuptools
+  ];
+
   propagatedBuildInputs = with python3Packages; [
     construct
     six
