@@ -22,6 +22,5 @@ python3Packages.buildPythonPackage rec {
     homepage = "https://github.com/matwey/pybeam";
     maintainers = with maintainers; [ javimerino ];
     license = [ licenses.mit ];
-    platforms = platforms.all;
   };
 }
