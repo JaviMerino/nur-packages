@@ -1,0 +1,30 @@
+From ocaml-fd-send-recv#9: https://github.com/xapi-project/ocaml-fd-send-recv/pull/9
+
+From a54d2379c51ec99d94e77eede971870c3b591407 Mon Sep 17 00:00:00 2001
+From: Javi Merino <merino.jav@gmail.com>
+Date: Wed, 6 Mar 2024 21:59:33 +0000
+Subject: [PATCH] fd_send_recv_stubs: fix build with ocaml earlier than 5
+
+---
+ lib/fd_send_recv_stubs.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/lib/fd_send_recv_stubs.c b/lib/fd_send_recv_stubs.c
+index 88c5510989d8..7860c6d57713 100644
+--- a/lib/fd_send_recv_stubs.c
++++ b/lib/fd_send_recv_stubs.c
+@@ -34,6 +34,11 @@
+ #include <caml/callback.h>
+ #include <caml/unixsupport.h>
+ 
++#include <caml/version.h>
++#if OCAML_VERSION_MAJOR < 5
++#define caml_uerror uerror
++#endif
++
+ static int msg_flag_table[] = {
+   MSG_OOB, MSG_DONTROUTE, MSG_PEEK
+ };
+-- 
+2.43.1
+
