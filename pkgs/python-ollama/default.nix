@@ -12,7 +12,7 @@ python3Packages.buildPythonPackage rec {
     hash = "sha256-xHEoaiu+ncmYZCiDHGejpsJ+f7Xj31X0HB4ouNAKgKc=";
   };
   patches = [
-    ./bump-httpx-to-0.26.0.patch
+    ./loosen-httpx-constraint.patch
   ];
 
   nativeBuildInputs = [
