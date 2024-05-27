@@ -17,12 +17,11 @@ for the available packages.
 
 ## Modules
 
-* ollama systemd service as a home-manager module.
-
-Use like you would any other home-manager module from NUR.  Set
+Use these modules like you would any other home-manager module from NUR.  Set
 nur-no-pkgs as [the NUR README
 describes](https://github.com/nix-community/NUR?tab=readme-ov-file#using-modules-overlays-or-library-functions-in-nixos),
-then add the module to your home-manager imports:
+then add the module to your home-manager imports.  For example, for
+ollama:
 
 ``` nix
   imports = [
@@ -32,7 +31,11 @@ then add the module to your home-manager imports:
   ];
 ```
 
-And configure it:
+### ollama
+
+systemd service as a home-manager module.
+
+Example configuration:
 
 ``` nix
 {pkgs, ... }:
@@ -47,3 +50,40 @@ After activating it with `home-manager switch`, don't forget to start
 the service: `systemctl --user start ollama`.  Afterwards, any
 `ollama` command will find the server running (eg. `ollama run
 llama3`).
+
+### say-tts
+
+Add speech modules as data files for
+[say](https://github.com/JaviMerino/say-tts).  An example
+configuration:
+
+``` nix
+{pkgs, ... }:
+{
+  programs.say-tts = {
+    enable = true;
+    models = {
+      "en_GB-alan-medium.onnx" = pkgs.fetchurl {
+        url = "https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_GB/alan/medium/en_GB-alan-medium.onnx";
+        hash = "sha256-CjCWaJMiBedigB8e/Cc2zUsBIDKWIq32K+CeVjOdMzA=";
+      };
+      "en_GB-alan-medium.onnx.json" = pkgs.fetchurl {
+        url = "https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_GB/alan/medium/en_GB-alan-medium.onnx.json";
+        hash = "sha256-wPDRJOWJXADnwDs13MgofzGaaZijZbGC3rXI51LujB4=";
+      };
+      "es_ES-sharvard-medium.onnx" = pkgs.fetchurl {
+        url = "https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx";
+        hash = "sha256-QP6/sWecaaRQX/MR3BNuEh40GaE6KQ7yZP30Pd7dD7E=";
+      };
+      "es_ES-sharvard-medium.onnx.json" = pkgs.fetchurl {
+        url = "https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/es/es_ES/sharvard/medium/es_ES-sharvard-medium.onnx.json";
+        hash = "sha256-dDjJtpnHKwwziNrhto0/Nk3GaiFQ/lVKHBHwM3KVeyw=";
+      };
+    };
+  };
+}
+```
+
+You can get the URLs for the speech models from [the `VOICES.md` in piper
+documentation](
+https://github.com/rhasspy/piper/blob/master/VOICES.md).
