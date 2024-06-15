@@ -1,5 +1,4 @@
-{ fetchpatch
-, fetchPypi
+{ fetchPypi
 , lib
 , python3Packages
 }:
