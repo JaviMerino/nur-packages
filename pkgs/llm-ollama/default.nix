@@ -15,8 +15,9 @@ python3Packages.buildPythonPackage rec {
   nativeBuildInputs = [
     python3Packages.setuptools
   ];
-  propagatedBuildInputs = [
-    python3Packages.ollama
+  propagatedBuildInputs = with python3Packages; [
+    ollama
+    pydantic
   ];
 
   # We can't add llm as a propagatedBuildInput as it creates a
