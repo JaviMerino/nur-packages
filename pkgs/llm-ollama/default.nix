@@ -1,5 +1,6 @@
 { fetchPypi
 , lib
+, llm
 , python3Packages
 }:
 python3Packages.buildPythonPackage rec {
@@ -20,9 +21,9 @@ python3Packages.buildPythonPackage rec {
     pydantic
   ];
 
-  # We can't add llm as a propagatedBuildInput as it creates a
-  # circular dependency.
-  dontCheckRuntimeDeps = true;
+  # We can't add llm to dependencies as it creates a circular
+  # dependency.
+  nativeCheckInputs = [ llm ];
 
   meta = with lib; {
     description = "LLM plugin providing access to models running on local Ollama server.";
