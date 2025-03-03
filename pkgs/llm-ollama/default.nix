@@ -12,10 +12,10 @@ python3Packages.buildPythonPackage rec {
     hash = "sha256-cvZ6AdzLsMPl6BHsHmYYYc7Ab0N6Ngrvc6frQzBpwHg=";
   };
 
-  nativeBuildInputs = [
+  build-system = [
     python3Packages.setuptools
   ];
-  propagatedBuildInputs = with python3Packages; [
+  dependencies = with python3Packages; [
     ollama
     pydantic
   ];
