@@ -27,6 +27,7 @@ python3Packages.buildPythonPackage rec {
   meta = with lib; {
     description = "LLM plugin providing access to models running on local Ollama server.";
     homepage = "https://github.com/taketwo/llm-ollama";
+    changelog = "https://github.com/pycontribs/jira/releases/tag/${version}";
     maintainers = with maintainers; [ javimerino ];
     license = licenses.mit;
   };
