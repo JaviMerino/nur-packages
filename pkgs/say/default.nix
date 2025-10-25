@@ -27,7 +27,7 @@ writeShellApplication {
   meta = with lib; {
     broken = true;
     description = "Simple CLI for converting text to speech using piper-tts";
-    homepage = "https://github.com/JaviMerino/mail_replyer";
+    homepage = "https://github.com/JaviMerino/say-tts";
     maintainers = with maintainers; [ javimerino ];
     license = licenses.mit;
   };
